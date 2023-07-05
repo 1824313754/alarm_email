@@ -3,6 +3,7 @@ package org.example
 import com.alibaba.fastjson.JSON
 import org.example.SendEmail.sendEmail
 
+import java.nio.charset.StandardCharsets
 import java.time.{LocalDate, LocalDateTime}
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
@@ -13,8 +14,15 @@ object AlarmMonitor {
     val properties = GetConfig.getProperties("test.properties")
     val mailTo = properties.getProperty("mail.to")
     val delayTime = properties.getProperty("delay.time").toInt
+
+    val maxSendTime  =properties.getProperty("max.send.time").toInt
+    //properties.getProperty("alarm.delayTime") 转为utf-8编码
+
+    val alarmDelayTimeUTF8 = new String(properties.getProperty("alarm.delayTime").getBytes("ISO-8859-1"), "UTF-8")
+
+
     //取出每家车厂报警的延迟时间
-    val alarmDelayTime = JSON.parseObject(properties.getProperty("alarm.delayTime"))
+    val alarmDelayTime = JSON.parseObject(alarmDelayTimeUTF8)
 
     //获取发送邮件的配置
     val start = properties.getProperty("start.hour").toInt
@@ -45,23 +53,23 @@ object AlarmMonitor {
         map += (vehicleFactoryCode -> vehicleFactoryName)
       }
 
-      val currentDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+      val currentDate = LocalDate.now().minusDays(1).format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
       val currentTime= LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
       val sql =
         s"""
            |SELECT vehicleFactory,max(ctime) as maxctime, 'ods' AS source_type,'$currentTime' AS currentTime
            |FROM source_gx.ods_all
-           |WHERE day_of_year = '$currentDate' AND ctime <= '$currentTime'
+           |WHERE day_of_year >= '$currentDate' AND ctime <= '$currentTime'
            |GROUP BY vehicleFactory,source_type,currentTime
            |UNION ALL
            |SELECT vehicleFactory,max(ctime) as maxctime, 'dwd' AS source_type,'$currentTime' AS currentTime
            |FROM warehouse_gx.dwd_all
-           |WHERE day_of_year = '$currentDate' AND ctime <= '$currentTime'
+           |WHERE day_of_year >= '$currentDate' AND ctime <= '$currentTime'
            |GROUP BY vehicleFactory,source_type,currentTime
            |UNION ALL
            |SELECT vehicle_factory as vehicleFactory,max(alarm_time) as maxctime, 'alarm' AS source_type,'$currentTime' AS currentTime
            |FROM battery_alarm.alarm_all
-           |WHERE day_of_year = '$currentDate' AND alarm_time <= '$currentTime'
+           |WHERE day_of_year >= '$currentDate' AND alarm_time <= '$currentTime'
            |GROUP BY vehicle_factory,source_type,currentTime
            |""".stripMargin
 
@@ -101,10 +109,12 @@ object AlarmMonitor {
           }
         }
       }
+
+      currentMessage
       //获取当前时间戳
       val nowTime: Long = System.currentTimeMillis()
       val diff: Long = nowTime - lastTime
-      if (list.nonEmpty && (lastMessage != currentMessage || (lastMessage == currentMessage && diff>1000*60*60*2))) {
+      if (list.nonEmpty && (lastMessage != currentMessage || (lastMessage == currentMessage && diff>1000*60*60*maxSendTime))) {
         //每天的早上8点到晚上8点之间发送邮件
         val hour = LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH")).toInt
         if (hour >= start && hour <= end) {

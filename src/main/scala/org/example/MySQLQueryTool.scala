@@ -12,6 +12,9 @@ class MySQLQueryTool {
 
   // 初始化连接
   private def getConnection: Connection = {
+    //设置驱动
+    Class.forName("com.mysql.cj.jdbc.Driver")
+    //获取mysql连接
     DriverManager.getConnection(mysqlConnString, mysqlUser, mysqlPassword)
   }
 
