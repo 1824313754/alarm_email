@@ -3,7 +3,6 @@ package org.example
 import com.alibaba.fastjson.JSON
 import org.example.SendEmail.sendEmail
 
-import java.nio.charset.StandardCharsets
 import java.time.{LocalDate, LocalDateTime}
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
@@ -114,7 +113,8 @@ object AlarmMonitor {
       //获取当前时间戳
       val nowTime: Long = System.currentTimeMillis()
       val diff: Long = nowTime - lastTime
-      if (list.nonEmpty && (lastMessage != currentMessage || (lastMessage == currentMessage && diff>1000*60*60*maxSendTime))) {
+      println(lastMessage,currentMessage)
+      if (list.nonEmpty && (!isAnagram(lastMessage,currentMessage) || (isAnagram(lastMessage,currentMessage) && diff>1000*60*60*maxSendTime))) {
         //每天的早上8点到晚上8点之间发送邮件
         val hour = LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH")).toInt
         if (hour >= start && hour <= end) {
@@ -129,6 +129,9 @@ object AlarmMonitor {
       //睡眠
       Thread.sleep(delayTime*1000*60)
     }
+  }
+  def isAnagram(str1: String, str2: String): Boolean = {
+    str1.toLowerCase.sorted == str2.toLowerCase.sorted
   }
 
 }
