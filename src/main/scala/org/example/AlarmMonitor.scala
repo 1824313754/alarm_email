@@ -40,7 +40,7 @@ object AlarmMonitor {
     var lastTime: Long = 0
     while (true) {
       //查询mysql表
-      val mySQLQuerySql = "select vehicle_factory_name,vehicle_factory_code from t_vehicle_factory"
+      val mySQLQuerySql = "select vehicle_factory_name,vehicle_factory_code from t_vehicle_factory WHERE vehicle_factory_code != '18'"
       val mySQLQueryTool = new MySQLQueryTool
       val set = mySQLQueryTool.executeQuery(mySQLQuerySql)
       //定义一个map
@@ -97,10 +97,10 @@ object AlarmMonitor {
           }
         } else if (source_type == "alarm") {
           val vehicleFactoryName = map.getOrElse(vehicleFactory, null)
+          if (vehicleFactoryName != null) {
           //获取当前车厂号对应的延迟时间
           val alarmDelayTimeValue = alarmDelayTime.getString(vehicleFactoryName).toInt
           if(minutesDiff > alarmDelayTimeValue){
-            if (vehicleFactoryName != null) {
               val content = s"$vehicleFactoryName 的 $source_type 数据在 $ctime 时刻未更新，延迟 $minutesDiff 分钟！"
               currentMessage += s"$vehicleFactoryName 的 $source_type "
               list += content

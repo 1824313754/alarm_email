@@ -7,6 +7,8 @@
     <list default="true" id="c38d8f50-592a-4893-9149-5bef97449fd2" name="变更" comment="监控初始化">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/org/example/AlarmMonitor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/org/example/AlarmMonitor.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/org/example/SendEmail.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/org/example/SendEmail.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/scala/org/example/Test.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/org/example/Test.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/test.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,8 +47,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ToolWindow运行.ShowToolbar": "false",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "F:/chuneng/EssClean/src/main/scala",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "全局库",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -63,7 +70,7 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.Test">
+  <component name="RunManager" selected="应用程序.AlarmMonitor">
     <configuration name="AlarmMonitor" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="org.example.AlarmMonitor" />
       <module name="EssClean" />
@@ -105,8 +112,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.Test" />
         <item itemvalue="应用程序.AlarmMonitor" />
+        <item itemvalue="应用程序.Test" />
         <item itemvalue="应用程序.MyRouteMain" />
       </list>
     </recent_temporary>
