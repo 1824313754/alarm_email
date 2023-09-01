@@ -28,7 +28,7 @@ object AlarmMonitor {
     val end = properties.getProperty("end.hour").toInt
     // 使用示例
     val from = "ids_alarm@gotion.com.cn"
-    val password = "Battery@123"
+    val password = properties.getProperty("password")
     val host = "smtp.exmail.qq.com"
     val port = "465"
     val subject = "延迟数据监控报警"
@@ -113,7 +113,7 @@ object AlarmMonitor {
       //获取当前时间戳
       val nowTime: Long = System.currentTimeMillis()
       val diff: Long = nowTime - lastTime
-      println(lastMessage,currentMessage)
+//      println(lastMessage,currentMessage)
       if (list.nonEmpty && (!isAnagram(lastMessage,currentMessage) || (isAnagram(lastMessage,currentMessage) && diff>1000*60*60*maxSendTime))) {
         //每天的早上8点到晚上8点之间发送邮件
         val hour = LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH")).toInt
