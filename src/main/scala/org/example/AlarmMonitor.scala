@@ -99,8 +99,8 @@ object AlarmMonitor {
           val vehicleFactoryName = map.getOrElse(vehicleFactory, null)
           if (vehicleFactoryName != null) {
           //获取当前车厂号对应的延迟时间
-          val alarmDelayTimeValue = alarmDelayTime.getString(vehicleFactoryName).toInt
-          if(minutesDiff > alarmDelayTimeValue){
+          val alarmDelayTimeValue = Option(alarmDelayTime.getString(vehicleFactoryName)).getOrElse("10").toInt
+            if(minutesDiff > alarmDelayTimeValue){
               val content = s"$vehicleFactoryName 的 $source_type 数据在 $ctime 时刻未更新，延迟 $minutesDiff 分钟！"
               currentMessage += s"$vehicleFactoryName 的 $source_type "
               list += content
