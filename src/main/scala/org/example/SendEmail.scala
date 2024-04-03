@@ -29,7 +29,6 @@ object SendEmail {
     properties.put("mail.smtp.ssl.socketFactory", sslContext.getSocketFactory)
     // 创建会话
     val session = Session.getDefaultInstance(properties)
-
     try {
       // 创建邮件消息
       val message = new MimeMessage(session)
@@ -37,7 +36,6 @@ object SendEmail {
       to.foreach(email => message.addRecipient(Message.RecipientType.TO, new InternetAddress(email)))
       message.setSubject(subject)
       message.setText(content)
-
       // 发送邮件
       val transport = session.getTransport("smtp")
       transport.connect(host, from, password)

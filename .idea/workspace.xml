@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c38d8f50-592a-4893-9149-5bef97449fd2" name="变更" comment="去除吉利商用车">
+    <list default="true" id="c38d8f50-592a-4893-9149-5bef97449fd2" name="变更" comment="优化邮件发送时间的逻辑">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/org/example/AlarmMonitor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/org/example/AlarmMonitor.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/org/example/ClickhouseUtils.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/org/example/ClickhouseUtils.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/org/example/SendEmail.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/org/example/SendEmail.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/scala/org/example/Test.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/org/example/Test.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/test.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,34 +38,34 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2S6MsgIMR3XqUUxXPm1Wnfd49Qg" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ToolWindow运行.ShowToolbar": "false",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "F:/chuneng/EssClean/src/main/scala",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "全局库",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "File.Encoding",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ToolWindow运行.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/chuneng/EssClean/src/main/scala&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;全局库&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\chuneng\EssClean\src\main\scala" />
@@ -74,7 +79,7 @@
   <component name="RunManager" selected="应用程序.AlarmMonitor">
     <configuration name="AlarmMonitor" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="org.example.AlarmMonitor" />
-      <module name="alarm_email" />
+      <module name="EssClean" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.example.*" />
@@ -100,7 +105,7 @@
     </configuration>
     <configuration name="Test" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Test" />
-      <module name="alarm_email" />
+      <module name="EssClean" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.example.*" />
@@ -137,6 +142,20 @@
       <workItem from="1694651467593" duration="1189000" />
       <workItem from="1694742551586" duration="8354000" />
       <workItem from="1706491044638" duration="229000" />
+      <workItem from="1706491300383" duration="8090000" />
+      <workItem from="1706668179250" duration="532000" />
+      <workItem from="1706750345326" duration="1304000" />
+      <workItem from="1706755116207" duration="569000" />
+      <workItem from="1706770470788" duration="577000" />
+      <workItem from="1706866914127" duration="539000" />
+      <workItem from="1707093898427" duration="2105000" />
+      <workItem from="1707203117319" duration="2165000" />
+      <workItem from="1708217196261" duration="2869000" />
+      <workItem from="1708410079549" duration="1169000" />
+      <workItem from="1708477605470" duration="575000" />
+      <workItem from="1708478652196" duration="557000" />
+      <workItem from="1708582261373" duration="567000" />
+      <workItem from="1712104356506" duration="4810000" />
     </task>
     <task id="LOCAL-00001" summary="监控初始化">
       <created>1688537907599</created>
@@ -166,11 +185,30 @@
       <option name="project" value="LOCAL" />
       <updated>1693532163723</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="优化邮件发送时间的逻辑">
+      <option name="closed" value="true" />
+      <created>1706491598804</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1706491598804</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -198,6 +236,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="监控初始化" />
     <MESSAGE value="去除吉利商用车" />
-    <option name="LAST_COMMIT_MESSAGE" value="去除吉利商用车" />
+    <MESSAGE value="优化邮件发送时间的逻辑" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化邮件发送时间的逻辑" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/main/scala/org/example/AlarmMonitor.scala</url>
+          <line>104</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
